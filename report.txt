@@ -1,0 +1,69 @@
+Task1: 
+IPv4 address: 10.22.36.234
+IPv6 address: 2001:630:d0:1002:c08d:8572:3ddc:c114
+DHCP Server: 152.78.111.198
+Default gateway: 10.22.39.254
+
+Task2:
+Internet Protocol Version 4, Src: 10.22.36.234, Dst: 152.78.110.110
+User Datagram Protocol, Src Port: 58479, Dst Port: 53
+Domain Name System (query)
+    Transaction ID: 0xe6b3f
+    Flags: 0x0100 Standard query
+    Questions: 1
+    Answer RRs: 0
+    Authority RRs: 0
+    Additional RRs: 0
+    Queries
+        svm-km2-nets.ecs.soton.ac.uk: type AAAA, class IN
+            Name: svm-km2-nets.ecs.soton.ac.uk
+            [Name Length: 28]
+            [Label Count: 5]
+            Type: AAAA (IPv6 Address) (28)
+            Class: IN (0x0001)
+    [Response In: 49]
+Task3:
+Tracing route to google.co.uk [216.58.210.35]
+over a maximum of 30 hops:
+
+  1     1 ms     1 ms     1 ms  2001:630:d0:1002::2
+  2     1 ms    <1 ms    <1 ms  hfc-core-fw1-int.net.soton.ac.uk [2001:630:d0:100::7]
+  3     3 ms     2 ms     2 ms  b59ev-xesw1-fw.net.soton.ac.uk [2001:630:d0:1::2]
+  4     1 ms     1 ms     1 ms  2001:630:0:9006::a5
+  5     2 ms     2 ms     1 ms  2001:630:0:1006:10::e
+  6     3 ms     3 ms     4 ms  ae23-0.londpg-sbr2.ja.net [2001:630:0:10::1a9]
+  7     4 ms     4 ms     4 ms  ae29.londhx-sbr1.ja.net [2001:630:0:10::1c9]
+  8     *        *        *     Request timed out.
+  9     4 ms     4 ms     4 ms  2001:4860:0:1100::1
+ 10     4 ms     4 ms     4 ms  2001:4860:0:1::2329
+ 11     3 ms     4 ms     4 ms  lhr25s15-in-x03.1e100.net [2a00:1450:4009:811::2003]
+
+Tracing Route to google.jp [216.58.206.67]
+over a maximum of 30 hops:
+
+  1     7 ms     1 ms     1 ms  2001:630:d0:1002::2
+  2     1 ms     1 ms     1 ms  hfc-core-fw1-int.net.soton.ac.uk [2001:630:d0:100::7]
+  3     1 ms     1 ms     2 ms  b59ev-xesw1-fw.net.soton.ac.uk [2001:630:d0:1::2]
+  4     1 ms     1 ms     1 ms  2001:630:0:9006::a5
+  5     2 ms     1 ms     2 ms  2001:630:0:1006:10::e
+  6     3 ms     4 ms     4 ms  ae23-0.londpg-sbr2.ja.net [2001:630:0:10::1a9]
+  7     4 ms     4 ms     3 ms  ae29.londhx-sbr1.ja.net [2001:630:0:10::1c9]
+  8     *        *        *     Request timed out.
+  9     *        *        *     Request timed out.
+ 10     5 ms     5 ms     5 ms  2001:4860:0:1::2acd
+ 11     5 ms     5 ms     4 ms  lhr35s11-in-x03.1e100.net [2a00:1450:4009:815::2003]
+
+Task4:
+Both traces took 11 hops to reach the destination servers google.co.uk - lhr25s15-in-x03.1e100.net [2a00:1450:4009:811::2003], respectively google.jp - lhr35s11-in-x03.1e100.net [2a00:1450:4009:815::2003].
+3-4 milliseconds were neede for retrieving data from the UK destination server and 4-5 milliseconds for the Japan one.
+Both have the same route: London,UK - Google, Southampton, UK - Jisc Services Limited, London, UK - Jisc Services Limited, MountainView, California, US - Google, London, UK -Google.
+Both traceroutes encountered Request timed out error, on hop 8, respectively on hops 8 and 9 as the servers at those hops do not accept ICMP traffic.
+
+Task5:
+22/tcp   open     ssh
+80/tcp   open     http
+111/tcp  open     rpcbind
+993/tcp  filtered imaps
+995/tcp  filtered pop3s
+1720/tcp open     h323q931
+5002/tcp open     rfe
